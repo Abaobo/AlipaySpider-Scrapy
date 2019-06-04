@@ -8,6 +8,7 @@ Created on 2017年10月23日
 import math
 import time
 import datetime
+import random
 
 # 第三方库
 from dateutil.relativedelta import relativedelta
@@ -23,18 +24,18 @@ class TimeUtil:
         self.Friday = "周五"
         self.Saturday = "周六"
         self.Sunday = "周日"
-        
+
         self.Morning = "上午"
         self.Afternoon = "下午"
         self.Evening = "晚上"
         self.Midnight = "半夜"
-        
+
         self.morning_start = "060000"
         self.afternoon_start = "120000"
         self.evening_start = "180000"
         self.evening_end = "235959"
         self.midnight_start = "000000"
-        
+
         self.time_hms_layout = "%H%M%S"
         self.time_ymd_layout = "%Y%M%D"
 
@@ -91,7 +92,7 @@ class TimeUtil:
                 return False
         except Exception as err:
             print(err.with_traceback(err))
-    
+
     # 判断时间段
     def get_time_quantum(self, time_hms):
         if self._divide_time_quantum(time_hms=time.strptime(time_hms, self.time_hms_layout),
